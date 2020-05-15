@@ -4,8 +4,7 @@
 1. [Overview](#Overview)
 2. [Product Specs](#Product-Specs)
 3. [App Walkthrough](#App-Walkthrough)
-4. [Open-Source libraries used](#Open-Source-libraries-used)
-5. [Credits](#Credits)
+4. [Credits](#Credits)
 
 ## Overview
 ### Description
@@ -15,19 +14,27 @@ MK an app that allows users to interact with characters from the iconic video ga
 ## Product Specs
 ### User Stories
 
-- [ ] User shall be able to use gestures to trigger events.
-- [ ] User shall be able to gestures to move and transform views.
-- [ ] User shall be able to animations to transition views between various positions and transformations.
+- [X] User shall be able to move karts around the screen using a pan gesture.
+- [X] User shall be able to adjust the size of the kart using a pinch gesture.
+- [X] User shall be able to rotate a kart using a rotation gesture.
+- [X] User shall be able to double tap a kart to make it zoom (animate) off the screen.
+- [X] User shall be able to long press the background to reset the kart position.
+- [X] User shall be able to use the pinch and rotation gestures simultaneously.
+- [X] User shall be able to see the kart slightly scale up and back down to simulate being picked up and put down when using the pan gesture.
+- [X] User shall be able to double tap a kart:
+  - [X] To animate backwards slightly before racing off to simulate winding up.
+  - [X] Pop a wheelie by rotating up and back down as it races off.
+  - [X] And finish racing off the screen and the kart fades back to its original position.
+- [ ] User shall be able to triple tap the background to make all karts on the track zoom (animate) off at different speeds.
+- [ ] User shall be able to see a character with a stop light float down, animate through the lights (gif sequence) ending on green to signal the race. The kart then go racing off.
+- [ ] User shall be able to see a card drop down from the top of the screen, showing the winner.
+- [X] User shall be able to see the karts reset its position after the race ends.
 
 ## App Walkthrough
 
 Here's a GIF of how the app works:
 
 <img src="ADD_GIF_LINK" width=250><br>
-
-## Open-source libraries used
-
-- [LIBRARY NAME](ADD_SOURCE_LINK_HERE) - Add a description here.
 
 ## Credits
 
