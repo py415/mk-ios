@@ -4,7 +4,8 @@
 1. [Overview](#Overview)
 2. [Product Specs](#Product-Specs)
 3. [App Walkthrough](#App-Walkthrough)
-4. [Credits](#Credits)
+4. [Open-source libraries used](#Open-source-libraries-used)
+5. [Credits](#Credits)
 
 ## Overview
 ### Description
@@ -35,6 +36,10 @@ MK an app that allows users to interact with characters from the iconic video ga
 Here's a GIF of how the app works:
 
 <img src="https://user-images.githubusercontent.com/35745973/82111117-88892800-96f7-11ea-9ecc-fb359af22f93.gif" width=250><br>
+
+## Open-source libraries used
+
+- [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) - A performant animated GIF engine for iOS.
 
 ## Credits
 
