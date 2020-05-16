@@ -21,20 +21,20 @@ MK an app that allows users to interact with characters from the iconic video ga
 - [X] User shall be able to long press the background to reset the kart position.
 - [X] User shall be able to use the pinch and rotation gestures simultaneously.
 - [X] User shall be able to see the kart slightly scale up and back down to simulate being picked up and put down when using the pan gesture.
-- [X] User shall be able to double tap a kart:
-  - [X] To animate backwards slightly before racing off to simulate winding up.
+- [X] User shall be able to double tap a kart and:
+  - [X] Animate backwards slightly before racing off to simulate winding up.
   - [X] Pop a wheelie by rotating up and back down as it races off.
-  - [X] And finish racing off the screen and the kart fades back to its original position.
-- [ ] User shall be able to triple tap the background to make all karts on the track zoom (animate) off at different speeds.
-- [ ] User shall be able to see a character with a stop light float down, animate through the lights (gif sequence) ending on green to signal the race. The kart then go racing off.
-- [ ] User shall be able to see a card drop down from the top of the screen, showing the winner.
+  - [X] Finish racing off the screen and the kart fades back to its original position.
+- [X] User shall be able to triple tap the background to make all karts on the track zoom (animate) off at different speeds.
+- [X] User shall be able to see a character with a stop light float down, animate through the lights (gif sequence) ending on green to signal the race. The kart then go racing off.
+- [X] User shall be able to see a card drop down from the top of the screen, showing the winner.
 - [X] User shall be able to see the karts reset its position after the race ends.
 
 ## App Walkthrough
 
 Here's a GIF of how the app works:
 
-<img src="ADD_GIF_LINK" width=250><br>
+<img src="https://user-images.githubusercontent.com/35745973/82111117-88892800-96f7-11ea-9ecc-fb359af22f93.gif" width=250><br>
 
 ## Credits
 
