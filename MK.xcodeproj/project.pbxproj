@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		720ACD78246F32990013F74F /* winner_0.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD75246F32990013F74F /* winner_0.gif */; };
-		720ACD79246F32990013F74F /* winner_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD76246F32990013F74F /* winner_1.gif */; };
-		720ACD7A246F32990013F74F /* winner_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD77246F32990013F74F /* winner_2.gif */; };
+		720ACD88246F64080013F74F /* bowser.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD7F246F64080013F74F /* bowser.gif */; };
+		720ACD89246F64080013F74F /* koopatroopa.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD80246F64080013F74F /* koopatroopa.gif */; };
+		720ACD8A246F64080013F74F /* donkeykong.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD81246F64080013F74F /* donkeykong.gif */; };
+		720ACD8B246F64080013F74F /* princesstoadstool.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD82246F64080013F74F /* princesstoadstool.gif */; };
+		720ACD8C246F64080013F74F /* toad.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD83246F64080013F74F /* toad.gif */; };
+		720ACD8D246F64080013F74F /* luigi.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD84246F64080013F74F /* luigi.gif */; };
+		720ACD8E246F64080013F74F /* yoshi.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD85246F64080013F74F /* yoshi.gif */; };
+		720ACD8F246F64080013F74F /* lakitu.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD86246F64080013F74F /* lakitu.gif */; };
+		720ACD90246F64080013F74F /* mario.gif in Resources */ = {isa = PBXBuildFile; fileRef = 720ACD87246F64080013F74F /* mario.gif */; };
 		7260024C246E960C00D47B17 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7260024B246E960C00D47B17 /* Constant.swift */; };
 		72D62750246DF09F0041EA2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D6274F246DF09F0041EA2C /* AppDelegate.swift */; };
 		72D62752246DF09F0041EA2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D62751246DF09F0041EA2C /* SceneDelegate.swift */; };
@@ -17,16 +23,21 @@
 		72D62759246DF0A00041EA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D62758246DF0A00041EA2C /* Assets.xcassets */; };
 		72D62767246DF14C0041EA2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D62766246DF14C0041EA2C /* LaunchScreen.storyboard */; };
 		72D62769246DF17D0041EA2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D62768246DF17D0041EA2C /* Main.storyboard */; };
-		72D62773246DF32C0041EA2C /* cloudAnimated.gif in Resources */ = {isa = PBXBuildFile; fileRef = 72D6276F246DF32C0041EA2C /* cloudAnimated.gif */; };
 		9B3FEC5129E05275B7CA3A2B /* Pods_MK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19E1578E45959554431A002 /* Pods_MK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		069B12964E40C3FC647661EB /* Pods-MK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.release.xcconfig"; path = "Target Support Files/Pods-MK/Pods-MK.release.xcconfig"; sourceTree = "<group>"; };
 		25D210E7F1DB6FE180205490 /* Pods-MK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MK.debug.xcconfig"; path = "Target Support Files/Pods-MK/Pods-MK.debug.xcconfig"; sourceTree = "<group>"; };
-		720ACD75246F32990013F74F /* winner_0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = winner_0.gif; sourceTree = "<group>"; };
-		720ACD76246F32990013F74F /* winner_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = winner_1.gif; sourceTree = "<group>"; };
-		720ACD77246F32990013F74F /* winner_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = winner_2.gif; sourceTree = "<group>"; };
+		720ACD7F246F64080013F74F /* bowser.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bowser.gif; sourceTree = "<group>"; };
+		720ACD80246F64080013F74F /* koopatroopa.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = koopatroopa.gif; sourceTree = "<group>"; };
+		720ACD81246F64080013F74F /* donkeykong.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = donkeykong.gif; sourceTree = "<group>"; };
+		720ACD82246F64080013F74F /* princesstoadstool.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = princesstoadstool.gif; sourceTree = "<group>"; };
+		720ACD83246F64080013F74F /* toad.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = toad.gif; sourceTree = "<group>"; };
+		720ACD84246F64080013F74F /* luigi.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = luigi.gif; sourceTree = "<group>"; };
+		720ACD85246F64080013F74F /* yoshi.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = yoshi.gif; sourceTree = "<group>"; };
+		720ACD86246F64080013F74F /* lakitu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lakitu.gif; sourceTree = "<group>"; };
+		720ACD87246F64080013F74F /* mario.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = mario.gif; sourceTree = "<group>"; };
 		7260024B246E960C00D47B17 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		72D6274C246DF09F0041EA2C /* MK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72D6274F246DF09F0041EA2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +47,6 @@
 		72D6275D246DF0A00041EA2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72D62766246DF14C0041EA2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72D62768246DF17D0041EA2C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		72D6276F246DF32C0041EA2C /* cloudAnimated.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cloudAnimated.gif; sourceTree = "<group>"; };
 		A19E1578E45959554431A002 /* Pods_MK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,10 +131,15 @@
 		72D6276B246DF32C0041EA2C /* Animated GIFs */ = {
 			isa = PBXGroup;
 			children = (
-				720ACD75246F32990013F74F /* winner_0.gif */,
-				720ACD76246F32990013F74F /* winner_1.gif */,
-				720ACD77246F32990013F74F /* winner_2.gif */,
-				72D6276F246DF32C0041EA2C /* cloudAnimated.gif */,
+				720ACD7F246F64080013F74F /* bowser.gif */,
+				720ACD81246F64080013F74F /* donkeykong.gif */,
+				720ACD80246F64080013F74F /* koopatroopa.gif */,
+				720ACD86246F64080013F74F /* lakitu.gif */,
+				720ACD84246F64080013F74F /* luigi.gif */,
+				720ACD87246F64080013F74F /* mario.gif */,
+				720ACD82246F64080013F74F /* princesstoadstool.gif */,
+				720ACD83246F64080013F74F /* toad.gif */,
+				720ACD85246F64080013F74F /* yoshi.gif */,
 			);
 			path = "Animated GIFs";
 			sourceTree = "<group>";
@@ -207,13 +222,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				720ACD78246F32990013F74F /* winner_0.gif in Resources */,
-				72D62773246DF32C0041EA2C /* cloudAnimated.gif in Resources */,
+				720ACD8B246F64080013F74F /* princesstoadstool.gif in Resources */,
+				720ACD88246F64080013F74F /* bowser.gif in Resources */,
 				72D62769246DF17D0041EA2C /* Main.storyboard in Resources */,
 				72D62767246DF14C0041EA2C /* LaunchScreen.storyboard in Resources */,
-				720ACD7A246F32990013F74F /* winner_2.gif in Resources */,
+				720ACD8D246F64080013F74F /* luigi.gif in Resources */,
+				720ACD8C246F64080013F74F /* toad.gif in Resources */,
 				72D62759246DF0A00041EA2C /* Assets.xcassets in Resources */,
-				720ACD79246F32990013F74F /* winner_1.gif in Resources */,
+				720ACD8F246F64080013F74F /* lakitu.gif in Resources */,
+				720ACD89246F64080013F74F /* koopatroopa.gif in Resources */,
+				720ACD90246F64080013F74F /* mario.gif in Resources */,
+				720ACD8A246F64080013F74F /* donkeykong.gif in Resources */,
+				720ACD8E246F64080013F74F /* yoshi.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

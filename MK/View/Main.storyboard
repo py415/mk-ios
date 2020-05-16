@@ -23,7 +23,21 @@
                                     <outletCollection property="gestureRecognizers" destination="uCv-Q2-J6a" appends="YES" id="tqs-rR-eP2"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" image="kart_1" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-s8-S9d" userLabel="Kart 1">
+                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" image="mario" translatesAutoresizingMaskIntoConstraints="NO" id="wTk-yo-G2Q" userLabel="Mario">
+                                <rect key="frame" x="20" y="242" width="120" height="120"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="xes-50-5LY"/>
+                                    <constraint firstAttribute="width" constant="120" id="zUx-mV-B07"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BKv-xs-18b" appends="YES" id="mX3-w9-o5Y"/>
+                                    <outletCollection property="gestureRecognizers" destination="JsS-E4-0dh" appends="YES" id="bQ1-Hb-xLP"/>
+                                    <outletCollection property="gestureRecognizers" destination="kwT-cy-21D" appends="YES" id="fa5-n4-usd"/>
+                                    <outletCollection property="gestureRecognizers" destination="uaZ-hT-SGP" appends="YES" id="vqa-7a-5NP"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" image="luigi" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-s8-S9d" userLabel="Luigi">
                                 <rect key="frame" x="20" y="482" width="120" height="120"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -37,7 +51,7 @@
                                     <outletCollection property="gestureRecognizers" destination="jjh-Sh-RN8" appends="YES" id="le4-8O-I4R"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" image="kart_2" translatesAutoresizingMaskIntoConstraints="NO" id="GmC-gN-Isg" userLabel="Kart 2">
+                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" image="bowser" translatesAutoresizingMaskIntoConstraints="NO" id="GmC-gN-Isg" userLabel="Bowser">
                                 <rect key="frame" x="20" y="722" width="120" height="120"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -52,22 +66,8 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="-2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wqH-O3-34U" customClass="FLAnimatedImageView">
-                                <rect key="frame" x="225" y="87" width="140" height="140"/>
+                                <rect key="frame" x="238" y="196" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="kart_0" translatesAutoresizingMaskIntoConstraints="NO" id="wTk-yo-G2Q" userLabel="Kart 0">
-                                <rect key="frame" x="20" y="242" width="120" height="120"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="xes-50-5LY"/>
-                                    <constraint firstAttribute="width" constant="120" id="zUx-mV-B07"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="BKv-xs-18b" appends="YES" id="mX3-w9-o5Y"/>
-                                    <outletCollection property="gestureRecognizers" destination="JsS-E4-0dh" appends="YES" id="bQ1-Hb-xLP"/>
-                                    <outletCollection property="gestureRecognizers" destination="kwT-cy-21D" appends="YES" id="fa5-n4-usd"/>
-                                    <outletCollection property="gestureRecognizers" destination="uaZ-hT-SGP" appends="YES" id="vqa-7a-5NP"/>
-                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -180,9 +180,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="320" height="568"/>
-        <image name="kart_0" width="340" height="340"/>
-        <image name="kart_1" width="340" height="340"/>
-        <image name="kart_2" width="340" height="340"/>
+        <image name="background" width="640" height="1136"/>
+        <image name="bowser" width="245" height="200"/>
+        <image name="luigi" width="245" height="200"/>
+        <image name="mario" width="245" height="200"/>
     </resources>
 </document>

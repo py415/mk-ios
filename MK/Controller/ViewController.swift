@@ -10,20 +10,26 @@ import UIKit
 import FLAnimatedImage
 
 enum GestureDuration: TimeInterval {
-    
+
     case slow = 0.6
     case mediumSlow = 0.5
     case medium = 0.4
     case mediumFast = 0.3
     case fast = 0.2
-    
+
 }
 
-enum Character: String {
+enum Kart: String {
     
-    case bowser = "Bowser"
-    case mario = "Mario"
-    case toad = "Toad"
+    case mario = "mario" // 1
+    case luigi = "luigi" // 2
+    case princessToadstool = "princesstoadstool" // 3
+    case yoshi = "yoshi" // 4
+    case bowser = "bowser" // 5
+    case donkeyKong = "donkeykong" // 6
+    case koopaTroopa = "koopatroopa" // 7
+    case toad = "toad" // 8
+    case lakitu = "lakitu" // -2
     
 }
 
@@ -75,7 +81,7 @@ class ViewController: UIViewController {
         cloudAnimatedView.center = cloudUpCenter
         
         // Set animated cloud gif
-        let gifData = Constant.fetchResource(named: "cloudAnimated", ofType: "gif")
+        let gifData = Constant.fetchResource(named: Kart.lakitu.rawValue, ofType: "gif")
         let animatedImage = FLAnimatedImage(animatedGIFData: gifData)
         
         cloudAnimatedImage = animatedImage
@@ -158,7 +164,7 @@ class ViewController: UIViewController {
         
         let kartView = sender.view!
         
-        print("[\(type(of: sender))] Start moving \(getCharacter(usingTag: kartView.tag)) kart...")
+        print("[\(type(of: sender))] Start moving \(Constant.getKart(usingTag: kartView.tag)) kart...")
         
         startRace(with: [kartView])
         
@@ -203,6 +209,8 @@ class ViewController: UIViewController {
             // Generate random kart finishers sequence (winner is position 0)
             let finishingSequence = kartViews.shuffled()
             
+            print("[\(type(of: sender))] \(Constant.getKart(usingTag: finishingSequence[0].tag).capitalizingFirstLetter()) is the winner!")
+            
             // Kick off race animations
             self.startRace(with: finishingSequence)
         }
@@ -238,17 +246,17 @@ class ViewController: UIViewController {
             let initialPosition = kartView.center.x
             
             // Create zoom animation
-            UIView.animate(withDuration: GestureDuration.mediumFast.rawValue, delay: animationDelay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: (initialSpringVelocity * 10), options: [.curveEaseIn], animations: {
+            UIView.animate(withDuration: GestureDuration.fast.rawValue, delay: animationDelay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: (initialSpringVelocity * 10), options: [.curveEaseIn], animations: {
                 // Move backwards before driving forward
                 kartView.center.x -= 30
             }) { (_) in
                 // Render wheelie animation
-                UIView.animate(withDuration: GestureDuration.mediumFast.rawValue, delay: self.animationDelay, options: [], animations: {
+                UIView.animate(withDuration: GestureDuration.fast.rawValue, delay: self.animationDelay, options: [], animations: {
                     // Start wheelie animation
                     kartView.transform = CGAffineTransform(rotationAngle: CGFloat((-30) * Double.pi / 180))
                 }) { (_) in
                     // End wheelie animation
-                    UIView.animate(withDuration: GestureDuration.mediumFast.rawValue, animations: {
+                    UIView.animate(withDuration: GestureDuration.fast.rawValue, animations: {
                         kartView.transform = CGAffineTransform(rotationAngle: 0)
                     })
                 }
@@ -278,14 +286,14 @@ class ViewController: UIViewController {
         let backingView = UIView(frame: self.view.frame)
         let winnerCardView = UIView()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapWinnerCard(_:)))
-        let gifData = Constant.fetchResource(named: "winner_\(kartViews[0].tag)", ofType: "gif")
+        let gifData = Constant.fetchResource(named: "\(Constant.getKart(usingTag: kartViews[0].tag))", ofType: "gif")
         let animatedImage = FLAnimatedImage(animatedGIFData: gifData)
         let animatedWinnerView = FLAnimatedImageView()
         let label = UILabel()
         
         // Set backing view properties
         backingView.backgroundColor = .black
-        backingView.alpha = 0
+        backingView.alpha = 0.8
         
         // Set tap gesture properties
         tapGesture.numberOfTapsRequired = 1
@@ -331,8 +339,8 @@ class ViewController: UIViewController {
         
         // Render winner card animation
         UIView.animate(withDuration: 1, delay: self.animationDelay, usingSpringWithDamping: 0.6, initialSpringVelocity: self.initialSpringVelocity, options: .curveEaseOut, animations: {
+            winnerCardView.alpha = 0.8
             winnerCardView.center = backingView.center
-            self.backingView.alpha = 0.8
             self.cloudAnimatedView.center = self.cloudUpCenter
         }, completion: nil)
         
@@ -360,29 +368,9 @@ class ViewController: UIViewController {
         
         kartView.center.x = 0 - kartView.frame.width
         
-        UIView.animate(withDuration: 0.6) {
+        UIView.animate(withDuration: GestureDuration.medium.rawValue) {
             kartView.center.x = initialPosition
         }
-        
-    }
-    
-    // Fetches characters name using image view tag
-    private func getCharacter(usingTag tag: Int) -> Character.RawValue {
-        
-        var character: Character
-        
-        switch tag {
-        case 0:
-            character = Character.bowser
-        case 1:
-            character = Character.mario
-        case 2:
-            character = Character.toad
-        default:
-            character = Character.bowser
-        }
-        
-        return character.rawValue
         
     }
     
