@@ -18,24 +18,26 @@ MK an app that allows users to interact with characters from the iconic video ga
 - [X] User shall be able to move karts around the screen using a pan gesture.
 - [X] User shall be able to adjust the size of the kart using a pinch gesture.
 - [X] User shall be able to rotate a kart using a rotation gesture.
-- [X] User shall be able to double tap a kart to make it zoom (animate) off the screen.
-- [X] User shall be able to long press the background to reset the kart position.
+- [X] User shall be able to single tap a kart to make it zoom (animate) off the screen.
+- [X] User shall be able to tap the refresh button the background to reset the kart position.
 - [X] User shall be able to use the pinch and rotation gestures simultaneously.
 - [X] User shall be able to see the kart slightly scale up and back down to simulate being picked up and put down when using the pan gesture.
-- [X] User shall be able to double tap a kart and:
+- [X] User shall be able to single tap a kart and:
   - [X] Animate backwards slightly before racing off to simulate winding up.
   - [X] Pop a wheelie by rotating up and back down as it races off.
   - [X] Finish racing off the screen and the kart fades back to its original position.
-- [X] User shall be able to triple tap the background to make all karts on the track zoom (animate) off at different speeds.
+- [X] User shall be able to tap the play button to make all karts on the track zoom (animate) off at different speeds.
 - [X] User shall be able to see a character with a stop light float down, animate through the lights (gif sequence) ending on green to signal the race. The kart then go racing off.
 - [X] User shall be able to see a card drop down from the top of the screen, showing the winner.
 - [X] User shall be able to see the karts reset its position after the race ends.
+- [X] User shall be able to add new karts by pressing the add button
+- [X] User shall be able to remove all karts in view by tapping the trash button.
 
 ## App Walkthrough
 
 Here's a GIF of how the app works:
 
-<img src="https://user-images.githubusercontent.com/35745973/82111117-88892800-96f7-11ea-9ecc-fb359af22f93.gif" width=250><br>
+<img src="https://user-images.githubusercontent.com/35745973/82162282-298ef480-9858-11ea-94e7-fee1bd0fd8ef.gif" width=250><br>
 
 ## Open-source libraries used
 
