@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nkd-lq-xT7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="orn-6t-O5J">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MK-->
         <scene sceneID="Vfe-us-M5Q">
             <objects>
                 <viewController id="nkd-lq-xT7" customClass="ViewController" customModule="MK" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,173 +16,85 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" tag="-1" contentMode="scaleAspectFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="gV8-gE-VgT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VjW-0V-Mgk" appends="YES" id="2v2-2M-QZk"/>
-                                    <outletCollection property="gestureRecognizers" destination="uCv-Q2-J6a" appends="YES" id="tqs-rR-eP2"/>
-                                </connections>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" image="mario" translatesAutoresizingMaskIntoConstraints="NO" id="wTk-yo-G2Q" userLabel="Mario">
-                                <rect key="frame" x="20" y="242" width="120" height="120"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="xes-50-5LY"/>
-                                    <constraint firstAttribute="width" constant="120" id="zUx-mV-B07"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="BKv-xs-18b" appends="YES" id="mX3-w9-o5Y"/>
-                                    <outletCollection property="gestureRecognizers" destination="JsS-E4-0dh" appends="YES" id="bQ1-Hb-xLP"/>
-                                    <outletCollection property="gestureRecognizers" destination="kwT-cy-21D" appends="YES" id="fa5-n4-usd"/>
-                                    <outletCollection property="gestureRecognizers" destination="uaZ-hT-SGP" appends="YES" id="vqa-7a-5NP"/>
-                                </connections>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" image="luigi" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-s8-S9d" userLabel="Luigi">
-                                <rect key="frame" x="20" y="482" width="120" height="120"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="pk8-eS-4zz"/>
-                                    <constraint firstAttribute="height" constant="120" id="w93-sC-Yxq"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="DgG-aQ-eal" appends="YES" id="JIN-uX-9er"/>
-                                    <outletCollection property="gestureRecognizers" destination="IOZ-BH-thT" appends="YES" id="D4C-Yr-Ece"/>
-                                    <outletCollection property="gestureRecognizers" destination="imJ-7j-coT" appends="YES" id="UNl-po-F6S"/>
-                                    <outletCollection property="gestureRecognizers" destination="jjh-Sh-RN8" appends="YES" id="le4-8O-I4R"/>
-                                </connections>
-                            </imageView>
-                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" image="bowser" translatesAutoresizingMaskIntoConstraints="NO" id="GmC-gN-Isg" userLabel="Bowser">
-                                <rect key="frame" x="20" y="722" width="120" height="120"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="LoZ-Yl-J0g"/>
-                                    <constraint firstAttribute="width" constant="120" id="laD-oh-ttK"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="J8O-Xx-KRO" appends="YES" id="TrE-vy-Wds"/>
-                                    <outletCollection property="gestureRecognizers" destination="7aJ-cy-haJ" appends="YES" id="PWp-Np-VRj"/>
-                                    <outletCollection property="gestureRecognizers" destination="aAZ-Mm-dZg" appends="YES" id="aAU-Xo-TtN"/>
-                                    <outletCollection property="gestureRecognizers" destination="PV2-tt-Fbt" appends="YES" id="i49-Oi-4ZJ"/>
-                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="-2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wqH-O3-34U" customClass="FLAnimatedImageView">
-                                <rect key="frame" x="238" y="196" width="140" height="140"/>
+                                <rect key="frame" x="254" y="133" width="140" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="mS7-s8-S9d" firstAttribute="leading" secondItem="IRx-bN-AsG" secondAttribute="leading" constant="20" id="2bQ-fX-je2"/>
-                            <constraint firstItem="GmC-gN-Isg" firstAttribute="top" secondItem="mS7-s8-S9d" secondAttribute="bottom" constant="120" id="2x2-Pa-HHQ"/>
-                            <constraint firstAttribute="bottom" secondItem="gV8-gE-VgT" secondAttribute="bottom" id="9Bh-Ux-zN3"/>
-                            <constraint firstItem="gV8-gE-VgT" firstAttribute="leading" secondItem="pMw-6m-eRa" secondAttribute="leading" id="Ile-CV-Uei"/>
-                            <constraint firstAttribute="trailing" secondItem="gV8-gE-VgT" secondAttribute="trailing" id="WlC-Ub-pNt"/>
-                            <constraint firstItem="gV8-gE-VgT" firstAttribute="top" secondItem="pMw-6m-eRa" secondAttribute="top" id="abW-BW-zPq"/>
-                            <constraint firstItem="GmC-gN-Isg" firstAttribute="leading" secondItem="IRx-bN-AsG" secondAttribute="leading" constant="20" id="kWg-Xc-28v"/>
-                            <constraint firstItem="wTk-yo-G2Q" firstAttribute="leading" secondItem="IRx-bN-AsG" secondAttribute="leading" constant="20" id="ol2-u3-UZQ"/>
-                            <constraint firstItem="mS7-s8-S9d" firstAttribute="top" secondItem="wTk-yo-G2Q" secondAttribute="bottom" constant="120" id="vUz-CY-HiR"/>
-                            <constraint firstItem="IRx-bN-AsG" firstAttribute="bottom" secondItem="GmC-gN-Isg" secondAttribute="bottom" constant="20" id="zId-pg-wSl"/>
+                            <constraint firstItem="gV8-gE-VgT" firstAttribute="leading" secondItem="IRx-bN-AsG" secondAttribute="leading" id="64O-YI-oeC"/>
+                            <constraint firstAttribute="bottom" secondItem="gV8-gE-VgT" secondAttribute="bottom" id="LAb-4z-VAY"/>
+                            <constraint firstItem="gV8-gE-VgT" firstAttribute="top" secondItem="IRx-bN-AsG" secondAttribute="top" id="XuR-Qv-9To"/>
+                            <constraint firstItem="gV8-gE-VgT" firstAttribute="trailing" secondItem="IRx-bN-AsG" secondAttribute="trailing" id="koo-aS-8kC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IRx-bN-AsG"/>
                     </view>
+                    <navigationItem key="navigationItem" title="MK" id="vAS-ZW-0mc">
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="trash" id="wjC-X8-PfX">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="removeAllKartsPressed:" destination="nkd-lq-xT7" id="miO-y2-0ei"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="tyU-1B-0wT">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addKartPressed:" destination="nkd-lq-xT7" id="X2P-kR-WkE"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="play" id="bFl-Bg-vKa">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="startRacePressed:" destination="nkd-lq-xT7" id="8hW-bm-Jei"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="PiI-D6-N8a">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="nkd-lq-xT7" id="yvV-OT-ceG"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="cloudAnimatedView" destination="wqH-O3-34U" id="K8K-a2-KN7"/>
-                        <outlet property="kartView0" destination="wTk-yo-G2Q" id="Mem-HR-bz6"/>
-                        <outlet property="kartView1" destination="mS7-s8-S9d" id="YE8-X9-CRn"/>
-                        <outlet property="kartView2" destination="GmC-gN-Isg" id="2rZ-pu-SXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lq9-Ez-S5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="BKv-xs-18b" userLabel="Pan Gesture Recognizer - Kart 0">
-                    <connections>
-                        <action selector="didPanKartView:" destination="nkd-lq-xT7" id="MFo-Q0-pCn"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="iFl-nx-FJ1"/>
-                    </connections>
-                </panGestureRecognizer>
-                <pinchGestureRecognizer id="JsS-E4-0dh" userLabel="Pinch Gesture Recognizer - Kart 0">
-                    <connections>
-                        <action selector="didPinchKartView:" destination="nkd-lq-xT7" id="LBS-p0-wUQ"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="OCH-0u-WCD"/>
-                    </connections>
-                </pinchGestureRecognizer>
-                <rotationGestureRecognizer id="kwT-cy-21D" userLabel="Rotation Gesture Recognizer - Kart 0">
-                    <connections>
-                        <action selector="didRotateKartView:" destination="nkd-lq-xT7" id="3uA-HZ-6md"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="2lb-4E-ADu"/>
-                    </connections>
-                </rotationGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="uaZ-hT-SGP" userLabel="Tap Gesture Recognizer - Kart 0">
-                    <connections>
-                        <action selector="didDoubleTapKart:" destination="nkd-lq-xT7" id="zWH-vv-etF"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="cet-i4-4ip"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="DgG-aQ-eal" userLabel="Pan Gesture Recognizer - Kart 1">
-                    <connections>
-                        <action selector="didPanKartView:" destination="nkd-lq-xT7" id="nMx-06-F40"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="gjA-3R-D3H"/>
-                    </connections>
-                </panGestureRecognizer>
-                <pinchGestureRecognizer id="IOZ-BH-thT" userLabel="Pinch Gesture Recognizer - Kart 1">
-                    <connections>
-                        <action selector="didPinchKartView:" destination="nkd-lq-xT7" id="xQ2-bn-dIj"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="DZX-5o-ozY"/>
-                    </connections>
-                </pinchGestureRecognizer>
-                <rotationGestureRecognizer id="imJ-7j-coT" userLabel="Rotation Gesture Recognizer - Kart 1">
-                    <connections>
-                        <action selector="didRotateKartView:" destination="nkd-lq-xT7" id="pQa-wc-ywV"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="eUz-nz-7e4"/>
-                    </connections>
-                </rotationGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="jjh-Sh-RN8" userLabel="Tap Gesture Recognizer - Kart 1">
-                    <connections>
-                        <action selector="didDoubleTapKart:" destination="nkd-lq-xT7" id="dWR-4e-Oh9"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="FPI-qH-SoO"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="J8O-Xx-KRO" userLabel="Pan Gesture Recognizer - Kart 2">
-                    <connections>
-                        <action selector="didPanKartView:" destination="nkd-lq-xT7" id="bRz-ig-Pvd"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="EIN-6p-kfn"/>
-                    </connections>
-                </panGestureRecognizer>
-                <pinchGestureRecognizer id="7aJ-cy-haJ" userLabel="Pinch Gesture Recognizer - Kart 2">
-                    <connections>
-                        <action selector="didPinchKartView:" destination="nkd-lq-xT7" id="fBk-8I-hm6"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="YOT-ef-tF7"/>
-                    </connections>
-                </pinchGestureRecognizer>
-                <rotationGestureRecognizer id="aAZ-Mm-dZg" userLabel="Rotation Gesture Recognizer - Kart 2">
-                    <connections>
-                        <action selector="didRotateKartView:" destination="nkd-lq-xT7" id="Any-Wz-2Jg"/>
-                        <outlet property="delegate" destination="gV8-gE-VgT" id="5YP-PN-Vwc"/>
-                    </connections>
-                </rotationGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="PV2-tt-Fbt" userLabel="Tap Gesture Recognizer - Kart 2">
-                    <connections>
-                        <action selector="didDoubleTapKart:" destination="nkd-lq-xT7" id="B0x-wu-jhd"/>
-                        <outlet property="delegate" destination="nkd-lq-xT7" id="Oxo-Sy-Yeb"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="VjW-0V-Mgk" userLabel="Long Press Gesture Recognizer - BG">
-                    <connections>
-                        <action selector="didLongPressBackground:" destination="nkd-lq-xT7" id="EyU-53-wqM"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-                <tapGestureRecognizer numberOfTapsRequired="3" id="uCv-Q2-J6a" userLabel="Tap Gesture Recognizer - BG">
-                    <connections>
-                        <action selector="didTripleTapBackground:" destination="nkd-lq-xT7" id="YGZ-nr-utc"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1076.8115942028987" y="30.803571428571427"/>
+            <point key="canvasLocation" x="2897.1014492753625" y="30.803571428571427"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Udc-3c-cRp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="orn-6t-O5J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="76X-fN-f4b">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.91372549020000005" green="0.32156862749999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nkd-lq-xT7" kind="relationship" relationship="rootViewController" id="trh-15-44N"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yk0-T3-JMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986.9565217391305" y="30.803571428571427"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="640" height="1136"/>
-        <image name="bowser" width="245" height="200"/>
-        <image name="luigi" width="245" height="200"/>
-        <image name="mario" width="245" height="200"/>
     </resources>
 </document>

@@ -9,68 +9,38 @@
 import UIKit
 import FLAnimatedImage
 
-enum GestureDuration: TimeInterval {
-
-    case slow = 0.6
-    case mediumSlow = 0.5
-    case medium = 0.4
-    case mediumFast = 0.3
-    case fast = 0.2
-
-}
-
-enum Kart: String {
-    
-    case mario = "mario" // 1
-    case luigi = "luigi" // 2
-    case princessToadstool = "princesstoadstool" // 3
-    case yoshi = "yoshi" // 4
-    case bowser = "bowser" // 5
-    case donkeyKong = "donkeykong" // 6
-    case koopaTroopa = "koopatroopa" // 7
-    case toad = "toad" // 8
-    case lakitu = "lakitu" // -2
-    
-}
-
 class ViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var kartView0: UIImageView!
-    @IBOutlet weak var kartView1: UIImageView!
-    @IBOutlet weak var kartView2: UIImageView!
     @IBOutlet weak var cloudAnimatedView: FLAnimatedImageView!
     
     // MARK: - Properties
-    private let usingSpringWithDamping: CGFloat = 0.4
-    private let initialSpringVelocity: CGFloat = 1
-    private let animationDelay: TimeInterval = 0
-    
-    private var karts = [UIImageView]()
-    private var originalKartPositions = [CGPoint]()
-    private var randomDuration: TimeInterval = 0
     private var backingView: UIView!
     private var cloudAnimatedImage: FLAnimatedImage?
     private var cloudDownCenter = CGPoint.zero
     private var cloudUpCenter = CGPoint.zero
+    private var karts = [Kart]()
+    private var originalKartPositions = [CGPoint]()
+    private var speedDictionary: [String: TimeInterval] = [:]
+    private var winner: String?
+    private var kartExistsInView = [String]()
+    private var xPosition: CGFloat!
+    private var yPosition: CGFloat!
+    
+    private let screenSize = UIScreen.main.bounds
+    private let maxmimumKarts = 8
+    private let kartWidth: CGFloat = 120
+    private let kartHeight: CGFloat = 120
+    private let characters = [
+        "mario", "luigi", "princesstoadstool", "yoshi", "bowser", "donkeykong", "koopatroopa", "toad"
+    ]
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        // Store karts in array
-        karts = [
-            kartView0,
-            kartView1,
-            kartView2
-        ]
-        
-        // Store original kart positions
-        originalKartPositions = [
-            kartView0.center,
-            kartView1.center,
-            kartView2.center
-        ]
+        xPosition = 20
+        yPosition = screenSize.height - kartHeight - 20
         
         // Set position where cloud will drop
         cloudDownCenter = cloudAnimatedView.center
@@ -81,7 +51,7 @@ class ViewController: UIViewController {
         cloudAnimatedView.center = cloudUpCenter
         
         // Set animated cloud gif
-        let gifData = Constant.fetchResource(named: Kart.lakitu.rawValue, ofType: "gif")
+        let gifData = Constant.fetchResource(named: "lakitu", ofType: "gif")
         let animatedImage = FLAnimatedImage(animatedGIFData: gifData)
         
         cloudAnimatedImage = animatedImage
@@ -90,203 +60,176 @@ class ViewController: UIViewController {
     
     // MARK: - IBAction Section
     
-    // Allows user to move karts around
-    @IBAction func didPanKartView(_ sender: UIPanGestureRecognizer) {
+    // Remove all karts button pressed
+    @IBAction func removeAllKartsPressed(_ sender: UIBarButtonItem) {
         
-        let translation = sender.translation(in: view)
-        let kartView = sender.view!
+        for kart in self.view.subviews where kart.tag >= 0 {
+            kart.removeFromSuperview()
+        }
         
-        if sender.state == .began {
-            // Initiate spring animation – makes kartView bigger
-            UIView.animate(withDuration: GestureDuration.slow.rawValue, delay: animationDelay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: .curveEaseIn, animations: {
-                // Scale kartView up – make bigger
-                kartView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            }, completion: nil)
-        } else if sender.state == .changed {
-            // Update the karts position and assign translation
-            kartView.center.x += translation.x
-            kartView.center.y += translation.y
+        karts.removeAll()
+        kartExistsInView.removeAll()
+        xPosition = 20
+        yPosition = screenSize.height - kartHeight - 20
+        
+    }
+    
+    // Add new kart in view
+    @IBAction func addKartPressed(_ sender: UIBarButtonItem) {
+        
+        print("Add kart pressed...")
+        
+        if karts.count < maxmimumKarts {
+            checkIfKartExistsInView()
             
-            // Reset gesture scale
-            sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
-        } else if sender.state == .ended {
-            // End spring animation – makes kartView smaller
-            UIView.animate(withDuration: GestureDuration.medium.rawValue, delay: animationDelay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: .curveEaseIn, animations: {
-                // Scale kartView down – make kartView smaller
-                kartView.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }, completion: nil)
-        }
-        
-    }
-    
-    // Scale kart when user pinches
-    @IBAction func didPinchKartView(_ sender: UIPinchGestureRecognizer) {
-        
-        let scale = sender.scale
-        let kartView = sender.view!
-        
-        // Update karts transform property with scale from gesture
-        kartView.transform = kartView.transform.scaledBy(x: scale, y: scale)
-        sender.scale = 1
-        
-        if sender.state == .ended {
-            // Render bounce animation when pinch gesture has been released
-            UIView.animate(withDuration: GestureDuration.medium.rawValue, delay: animationDelay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: .curveEaseIn, animations: {
-                // Return all karts to their original transformation state
-                kartView.transform = CGAffineTransform.identity
-            }, completion: nil)
-        }
-        
-    }
-    
-    // Rotates kart
-    @IBAction func didRotateKartView(_ sender: UIRotationGestureRecognizer) {
-        
-        let rotation = sender.rotation
-        let kartView = sender.view!
-        
-        // Update karts transform property with rotation from gesture
-        kartView.transform = kartView.transform.rotated(by: rotation)
-        sender.rotation = 0
-        
-        if sender.state == .ended {
-            // Render bounce animation when pinch gesture has been released
-            UIView.animate(withDuration: GestureDuration.medium.rawValue, delay: animationDelay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: initialSpringVelocity, options: .curveEaseIn, animations: {
-                // Return all karts to their original transformation state
-                kartView.transform = CGAffineTransform.identity
-            }, completion: nil)
-        }
-        
-    }
-    
-    // Drive double tapped kart
-    @IBAction func didDoubleTapKart(_ sender: UITapGestureRecognizer) {
-        
-        let kartView = sender.view!
-        
-        print("[\(type(of: sender))] Start moving \(Constant.getKart(usingTag: kartView.tag)) kart...")
-        
-        startRace(with: [kartView])
-        
-    }
-    
-    // Start race with all karts
-    @IBAction func didTripleTapBackground(_ sender: UITapGestureRecognizer) {
-        
-        print("[\(type(of: sender))] Starting race...")
-        
-        // Reset cloud animated image view
-        cloudAnimatedView.animatedImage = nil
-        // Loud animated image to image view
-        cloudAnimatedView.animatedImage = cloudAnimatedImage
-        // Temporarily freeze animation (to get first frame) until cloud is down in view
-        cloudAnimatedView.stopAnimating()
-        
-        // Start cloud drop animation
-        UIView.animate(withDuration: GestureDuration.mediumFast.rawValue, delay: animationDelay, options: .curveEaseOut, animations: {
-            self.cloudAnimatedView.center = self.cloudDownCenter
-        }) { (_) in
-            UIView.animate(withDuration: 0.8, delay: self.animationDelay, options: [.autoreverse, .repeat], animations: {
-                self.cloudAnimatedView.center.y -= 40
-            }, completion: nil)
-        }
-        
-        // Start cloud gif animation
-        self.cloudAnimatedView.startAnimating()
-        
-        self.cloudAnimatedView.loopCompletionBlock = {_ in
-            self.cloudAnimatedView.stopAnimating()
-            
-            var kartViews = [UIView]()
-            
-            for kartView in self.view.subviews {
-                // Move all views that are not < 0 (karts)
-                if kartView.tag < 0 { continue }
-                
-                kartViews.append(kartView)
+            for character in characters {
+                // Check if kart exists
+                if !kartExistsInView.contains(character) {
+                    let position = CGPoint(x: xPosition, y: yPosition)
+                    
+                    // Add kart to view if doesn't already exist
+                    createKart(named: character, atPosition: position)
+                    yPosition -= kartHeight
+                    
+                    if karts.count == (maxmimumKarts - karts.count) {
+                        xPosition += kartWidth
+                        yPosition = screenSize.height - kartHeight - 80
+                    }
+                    
+                    break
+                }
             }
             
-            // Generate random kart finishers sequence (winner is position 0)
-            let finishingSequence = kartViews.shuffled()
-            
-            print("[\(type(of: sender))] \(Constant.getKart(usingTag: finishingSequence[0].tag).capitalizingFirstLetter()) is the winner!")
-            
-            // Kick off race animations
-            self.startRace(with: finishingSequence)
+            print("Can add \(maxmimumKarts - karts.count) more karts... \n")
+        } else {
+            print("Failed to add more karts... Reached kart capacity... \n")
+            createErrorMessage(title: "Failed To Add Karts", message: "Reached maximum kart capacity.")
         }
         
     }
     
-    // Reset kart to initial position
-    @IBAction func didLongPressBackground(_ sender: UILongPressGestureRecognizer) {
+    // Start race
+    @IBAction func startRacePressed(_ sender: UIBarButtonItem) {
         
-        if sender.state == .began {
-            print("[\(type(of: sender))] Resetting kart to initial position and transformation state...")
+        if karts.count > 1 {
+            print("Start race...")
             
-            UIView.animate(withDuration: GestureDuration.medium.rawValue) {
+            // Reset cloud animated image view
+            cloudAnimatedView.animatedImage = nil
+            // Loud animated image to image view
+            cloudAnimatedView.animatedImage = cloudAnimatedImage
+            // Temporarily freeze animation (to get first frame) until cloud is down in view
+            cloudAnimatedView.stopAnimating()
+            
+            // Start cloud drop animation
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+                self.cloudAnimatedView.center = self.cloudDownCenter
+            }) { (_) in
+                UIView.animate(withDuration: 0.8, delay: 0, options: [.autoreverse, .repeat], animations: {
+                    self.cloudAnimatedView.center.y -= 40
+                }, completion: nil)
+            }
+            
+            // Start cloud gif animation
+            self.cloudAnimatedView.startAnimating()
+            
+            self.cloudAnimatedView.loopCompletionBlock = {_ in
+                self.cloudAnimatedView.stopAnimating()
                 
+                // Generate random kart finishers sequence (winner is position 0)
+                let finishingSequence = self.karts.shuffled()
+                
+                for (index, kart) in finishingSequence.enumerated() {
+                    kart.drive()
+                    
+                    let kartRider = "\(Constant.getKart(usingTag: kart.tag))"
+                    self.speedDictionary[kartRider] = kart.speedDictionary[kartRider]
+                    
+                    if finishingSequence.count > 1 && index == finishingSequence.count - 1 {
+                        let winner = self.findWinner(from: self.speedDictionary)!
+                        
+                        print("\(winner.capitalizingFirstLetter()) is the winner!")
+                        self.animateWinnerCard(with: winner)
+                        print("End race... \n")
+                    }
+                }
+            }
+        } else {
+            print("Failed to start race... Need at least 2 karts in view... \n")
+            createErrorMessage(title: "Cannot Start Race", message: "Need at least 2 karts to star race.")
+        }
+        
+    }
+    
+    // Reset kart to initial position and transformation state
+    @IBAction func resetButtonPressed(_ sender: UIBarButtonItem) {
+        
+        if !karts.isEmpty {
+            print("Resetting kart to initial position and transformation state...")
+            
+            UIView.animate(withDuration: 0.4) {
                 for (index, kart) in self.karts.enumerated() {
                     // Return all karts to their initial transformation state
                     kart.transform = CGAffineTransform.identity
                     // Return all karts to their initial positions
                     kart.center = self.originalKartPositions[index]
                 }
-                
             }
+        } else {
+            print("Nothing to reset... No karts in view...")
+            createErrorMessage(title: "Failed To Reset Kart Position", message: "No kart positions to be reset.")
         }
         
     }
     
     // MARK: - Private Function Section
     
-    private func startRace(with kartViews: [UIView]) {
+    // Create new kart
+    private func createKart(named name: String, atPosition position: CGPoint) {
         
-        for (index, kartView) in kartViews.enumerated() {
-            // Initial kart position
-            let initialPosition = kartView.center.x
+        let image = UIImage(named: name)
+        let kart = Kart(image: image)
+        
+        kart.frame = CGRect(x: position.x, y: position.y, width: kartWidth, height: kartHeight)
+        karts.append(kart)
+        originalKartPositions.append(kart.center)
+        
+        self.view.addSubview(kart)
+        
+    }
+    
+    // Check if kart exists in view
+    private func checkIfKartExistsInView() {
+        
+        // Loop through subviews in view to see if any subviews are karts
+        for kart in self.view.subviews where kart.tag >= 0 {
+            // Get kart name from tag
+            let kartExist = Constant.getKart(usingTag: kart.tag)
             
-            // Create zoom animation
-            UIView.animate(withDuration: GestureDuration.fast.rawValue, delay: animationDelay, usingSpringWithDamping: usingSpringWithDamping, initialSpringVelocity: (initialSpringVelocity * 10), options: [.curveEaseIn], animations: {
-                // Move backwards before driving forward
-                kartView.center.x -= 30
-            }) { (_) in
-                // Render wheelie animation
-                UIView.animate(withDuration: GestureDuration.fast.rawValue, delay: self.animationDelay, options: [], animations: {
-                    // Start wheelie animation
-                    kartView.transform = CGAffineTransform(rotationAngle: CGFloat((-30) * Double.pi / 180))
-                }) { (_) in
-                    // End wheelie animation
-                    UIView.animate(withDuration: GestureDuration.fast.rawValue, animations: {
-                        kartView.transform = CGAffineTransform(rotationAngle: 0)
-                    })
-                }
-            }
-            
-            randomDuration = TimeInterval.random(in: 0.5 ... 1.5)
-            
-            // Create race animation – move all karts
-            UIView.animate(withDuration: randomDuration, delay: animationDelay, options: .curveEaseIn, animations: {
-                // Move karts across screen
-                kartView.center.x += self.view.frame.width + 400
-            }) { (_) in
-                if kartViews.count > 1 && index == kartViews.count - 1 {
-                    self.animateWinnerCard(with: kartViews)
-                } else if index == kartViews.count - 1 {
-                    self.resetKartPosition(for: kartView, at: initialPosition)
-                }
-            }
+            // Add kart to kart exists array
+            kartExistsInView.append(kartExist)
         }
         
     }
     
+    // Returns winner of race
+    private func findWinner(from dictionary: [String: TimeInterval]) -> String? {
+        
+        let smallestInDict = self.speedDictionary.min(by: { a, b in a.value < b.value })
+        let smallestTimeInterval = smallestInDict?.key
+        
+        return smallestTimeInterval
+        
+    }
+    
     // Creates winner card
-    private func animateWinnerCard(with kartViews: [UIView]) {
+    private func animateWinnerCard(with winner: String) {
         
         // Create winner card
-        let backingView = UIView(frame: self.view.frame)
+        let backingView = UIView(frame: screenSize)
         let winnerCardView = UIView()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapWinnerCard(_:)))
-        let gifData = Constant.fetchResource(named: "\(Constant.getKart(usingTag: kartViews[0].tag))", ofType: "gif")
+        let gifData = Constant.fetchResource(named: winner, ofType: "gif")
         let animatedImage = FLAnimatedImage(animatedGIFData: gifData)
         let animatedWinnerView = FLAnimatedImageView()
         let label = UILabel()
@@ -338,7 +281,7 @@ class ViewController: UIViewController {
         self.view.addSubview(winnerCardView)
         
         // Render winner card animation
-        UIView.animate(withDuration: 1, delay: self.animationDelay, usingSpringWithDamping: 0.6, initialSpringVelocity: self.initialSpringVelocity, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             winnerCardView.alpha = 0.8
             winnerCardView.center = backingView.center
             self.cloudAnimatedView.center = self.cloudUpCenter
@@ -352,8 +295,8 @@ class ViewController: UIViewController {
         let winnerCardView = sender.view!
         
         // Render animation to dismiss winner card
-        UIView.animate(withDuration: GestureDuration.medium.rawValue, delay: animationDelay, options: .curveEaseIn, animations: {
-            winnerCardView.frame.origin.y = self.view.frame.size.height
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
+            winnerCardView.frame.origin.y = self.screenSize.height
             self.backingView.alpha = 0
         }) { (_) in
             // Remove winner card from view
@@ -363,27 +306,12 @@ class ViewController: UIViewController {
         
     }
     
-    // Reset positions of karts
-    private func resetKartPosition(for kartView: UIView, at initialPosition: CGFloat) {
+    private func createErrorMessage(title: String, message: String, alertTitle: String = "OK", alertStyle: UIAlertAction.Style = .default) {
         
-        kartView.center.x = 0 - kartView.frame.width
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: alertTitle, style: .default, handler: nil))
         
-        UIView.animate(withDuration: GestureDuration.medium.rawValue) {
-            kartView.center.x = initialPosition
-        }
-        
-    }
-    
-}
-
-// MARK: - UIGestureRecognizerDelegate Section
-
-extension ViewController: UIGestureRecognizerDelegate {
-    
-    // Allow for multiple gestures simultaneously
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        
-        return true
+        present(alert, animated: true, completion: nil)
         
     }
     

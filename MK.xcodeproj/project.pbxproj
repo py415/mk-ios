@@ -23,6 +23,7 @@
 		72D62759246DF0A00041EA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D62758246DF0A00041EA2C /* Assets.xcassets */; };
 		72D62767246DF14C0041EA2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D62766246DF14C0041EA2C /* LaunchScreen.storyboard */; };
 		72D62769246DF17D0041EA2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72D62768246DF17D0041EA2C /* Main.storyboard */; };
+		72E3020024710C800058974B /* Kart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E301FF24710C800058974B /* Kart.swift */; };
 		9B3FEC5129E05275B7CA3A2B /* Pods_MK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19E1578E45959554431A002 /* Pods_MK.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		72D6275D246DF0A00041EA2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72D62766246DF14C0041EA2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72D62768246DF17D0041EA2C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		72E301FF24710C800058974B /* Kart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kart.swift; sourceTree = "<group>"; };
 		A19E1578E45959554431A002 /* Pods_MK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				7260024B246E960C00D47B17 /* Constant.swift */,
+				72E301FF24710C800058974B /* Kart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E3020024710C800058974B /* Kart.swift in Sources */,
 				72D62754246DF09F0041EA2C /* ViewController.swift in Sources */,
 				72D62750246DF09F0041EA2C /* AppDelegate.swift in Sources */,
 				72D62752246DF09F0041EA2C /* SceneDelegate.swift in Sources */,

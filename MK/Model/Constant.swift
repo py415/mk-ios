@@ -6,7 +6,7 @@
 //  Copyright © 2020 Philip Yu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Constant {
     
@@ -27,34 +27,32 @@ struct Constant {
     }
     
     // Fetches characters name using image view tag
-    static func getKart(usingTag tag: Int) -> Kart.RawValue {
+    static func getKart(usingTag tag: Int) -> String {
         
-        var kart: Kart
+        var kart: String
         
         switch tag {
+        case 0:
+            kart = "mario"
         case 1:
-            kart = Kart.mario
+            kart = "luigi"
         case 2:
-            kart = Kart.luigi
+            kart = "princesstoadstool"
         case 3:
-            kart = Kart.princessToadstool
+            kart = "yoshi"
         case 4:
-            kart = Kart.yoshi
+            kart = "bowser"
         case 5:
-            kart = Kart.bowser
+            kart = "donkeykong"
         case 6:
-            kart = Kart.donkeyKong
+            kart = "koopatroopa"
         case 7:
-            kart = Kart.koopaTroopa
-        case 8:
-            kart = Kart.toad
-        case 10:
-            kart = Kart.lakitu
+            kart = "toad"
         default:
-            kart = Kart.mario
+            kart = "mario"
         }
         
-        return kart.rawValue
+        return kart
         
     }
     
