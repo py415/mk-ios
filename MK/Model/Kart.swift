@@ -13,7 +13,6 @@ class Kart: UIImageView {
     // MARK: - Properties
     var speedDictionary: [String: TimeInterval] = [:]
     
-    // MARK: - Initialization
     override init(image: UIImage?) {
         
         super.init(image: image)
@@ -58,7 +57,7 @@ class Kart: UIImageView {
         
     }
     
-    // MARK: - Private Fuctions Section
+    // MARK: - Private Fuction Section
     
     private func getTag(for image: UIImage) -> Int {
         
