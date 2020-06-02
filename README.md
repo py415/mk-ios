@@ -4,7 +4,7 @@
 1. [Overview](#Overview)
 2. [Product Specs](#Product-Specs)
 3. [App Walkthrough](#App-Walkthrough)
-4. [Open-source libraries used](#Open-source-libraries-used)
+4. [Libraries](#Libraries)
 5. [Credits](#Credits)
 
 ## Overview
@@ -30,19 +30,19 @@ MK an app that allows users to interact with characters from the iconic video ga
 - [X] User shall be able to see a character with a stop light float down, animate through the lights (gif sequence) ending on green to signal the race. The kart then go racing off.
 - [X] User shall be able to see a card drop down from the top of the screen, showing the winner.
 - [X] User shall be able to see the karts reset its position after the race ends.
-- [X] User shall be able to add new karts by pressing the add button
+- [X] User shall be able to add new karts by pressing the add button.
 - [X] User shall be able to remove all karts in view by tapping the trash button.
 
 ## App Walkthrough
 
 Here's a GIF of how the app works:
 
-<img src="https://user-images.githubusercontent.com/35745973/82162282-298ef480-9858-11ea-94e7-fee1bd0fd8ef.gif" width=250><br>
+<img src="https://user-images.githubusercontent.com/35745973/82162282-298ef480-9858-11ea-94e7-fee1bd0fd8ef.gif" width=250>
 
-## Open-source libraries used
+## Libraries
 
 - [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) - A performant animated GIF engine for iOS.
 
 ## Credits
 
->This is a companion project to CodePath's Professional iOS Course, check out the full course at [www.codepath.org](https://codepath.org/)
+>This is a companion project to CodePath's Professional iOS Course, check out the full course at [www.codepath.org](https://codepath.org/).
