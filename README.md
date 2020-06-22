@@ -37,7 +37,7 @@ MK an app that allows users to interact with characters from the iconic video ga
 
 Here's a GIF of how the app works:
 
-<img src="https://user-images.githubusercontent.com/35745973/82162282-298ef480-9858-11ea-94e7-fee1bd0fd8ef.gif" width=250>
+<img src="https://github.com/py415/app-resources/blob/master/ios/ios-mk.gif" width=250>
 
 ## Libraries
 
