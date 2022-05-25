@@ -1,18 +1,18 @@
-# MK
+# 🏎 MK
 
-## Table of Contents
-1. [Overview](#Overview)
-2. [Product Specs](#Product-Specs)
-3. [App Walkthrough](#App-Walkthrough)
-4. [Libraries](#Libraries)
-5. [Credits](#Credits)
+## 📋 Table of Contents
+1. [Overview](#-Overview)
+2. [Product Specs](#-Product-Specs)
+3. [App Walkthrough](#-App-Walkthrough)
+4. [Libraries](#-Libraries)
+5. [Credits](#-Credits)
 
-## Overview
+## 👀 Overview
 ### Description
 
 MK an app that allows users to interact with characters from the iconic video game, Mario Kart, panning, scaling, rotating and then sending them zooming off the screen!
 
-## Product Specs
+## 📕 Product Specs
 ### User Stories
 
 - [X] User shall be able to move karts around the screen using a pan gesture.
@@ -33,16 +33,16 @@ MK an app that allows users to interact with characters from the iconic video ga
 - [X] User shall be able to add new karts by pressing the add button.
 - [X] User shall be able to remove all karts in view by tapping the trash button.
 
-## App Walkthrough
+## 🎬 App Walkthrough
 
 Here's a GIF of how the app works:
 
-<img src="https://raw.githubusercontent.com/py415/app-resources/master/ios/ios-mk.gif" width="250" />
+<img src="https://raw.githubusercontent.com/py415/app-resources/master/GIFs/ios/ios-mk.gif" width="250" />
 
-## Libraries
+## 📚 Libraries
 
 - [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) - A performant animated GIF engine for iOS.
 
-## Credits
+## 💳 Credits
 
 >This is a companion project to CodePath's Professional iOS Course, check out the full course at [www.codepath.org](https://codepath.org/).
